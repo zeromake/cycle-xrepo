@@ -53,6 +53,10 @@ target("freetype")
         import("package.tools.xmake").install(package, configs)
     end)
 
-    on_test(function (package)
-        assert(package:has_cfuncs("ft_font_create", {includes = "ft.h"}))
-    end)
+    -- on_test(function (package)
+    --     local headers = {"ft.h"}
+    --     if package:config("harfbuzz") then
+    --         table.insert(headers, "hb.h")
+    --     end
+    --     assert(package:has_cfuncs("ft_font_create", {includes = headers}))
+    -- end)
